@@ -1,0 +1,20 @@
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\bin\Debug\Clinica Veterinaria.exe.config
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\bin\Debug\Clinica Veterinaria.exe
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\bin\Debug\Clinica Veterinaria.pdb
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\bin\Debug\Clinica Veterinaria.xml
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica Veterinaria.vbprojResolveAssemblyReference.cache
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica_Veterinaria.Form1.resources
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica_Veterinaria.Resources.resources
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica Veterinaria.vbproj.GenerateResource.Cache
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica Veterinaria.exe
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica Veterinaria.xml
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica Veterinaria.pdb
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica_Veterinaria.RegistroPacientes.resources
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica_Veterinaria.SeleccionarRaza.resources
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica_Veterinaria.BuscarPaciente.resources
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\bin\Debug\EntityFramework.dll
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\bin\Debug\EntityFramework.SqlServer.dll
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\bin\Debug\EntityFramework.xml
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\bin\Debug\EntityFramework.SqlServer.xml
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica_Veterinaria.RegistrarPropietario.resources
+e:\documentos\visual studio 2013\Projects\Clinica Veterinaria\Clinica Veterinaria\obj\Debug\Clinica_Veterinaria.SeleccionarPropietario.resources

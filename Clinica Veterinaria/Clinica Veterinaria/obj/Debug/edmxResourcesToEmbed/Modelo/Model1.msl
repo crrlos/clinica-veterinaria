@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="clinicaModelStoreContainer" CdmEntityContainer="clinicaEntities">
+    <EntitySetMapping Name="animales">
+      <EntityTypeMapping TypeName="clinicaModel.animales">
+        <MappingFragment StoreEntitySet="animales">
+          <ScalarProperty Name="idanimal" ColumnName="idanimal" />
+          <ScalarProperty Name="nombreanimal" ColumnName="nombreanimal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departamentos">
+      <EntityTypeMapping TypeName="clinicaModel.departamentos">
+        <MappingFragment StoreEntitySet="departamentos">
+          <ScalarProperty Name="iddepartamento" ColumnName="iddepartamento" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="expediente">
+      <EntityTypeMapping TypeName="clinicaModel.expediente">
+        <MappingFragment StoreEntitySet="expediente">
+          <ScalarProperty Name="idexpediente" ColumnName="idexpediente" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="tamaño" ColumnName="tamaño" />
+          <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
+          <ScalarProperty Name="alimentacion" ColumnName="alimentacion" />
+          <ScalarProperty Name="tratamiento" ColumnName="tratamiento" />
+          <ScalarProperty Name="dosis" ColumnName="dosis" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historialvacunas">
+      <EntityTypeMapping TypeName="clinicaModel.historialvacunas">
+        <MappingFragment StoreEntitySet="historialvacunas">
+          <ScalarProperty Name="idhistoria" ColumnName="idhistoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="municipios">
+      <EntityTypeMapping TypeName="clinicaModel.municipios">
+        <MappingFragment StoreEntitySet="municipios">
+          <ScalarProperty Name="idmunicipio" ColumnName="idmunicipio" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pacientes">
+      <EntityTypeMapping TypeName="clinicaModel.pacientes">
+        <MappingFragment StoreEntitySet="pacientes">
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fechadenacimiento" ColumnName="fechadenacimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="procedimientos">
+      <EntityTypeMapping TypeName="clinicaModel.procedimientos">
+        <MappingFragment StoreEntitySet="procedimientos">
+          <ScalarProperty Name="idprocedimiento" ColumnName="idprocedimiento" />
+          <ScalarProperty Name="tipoprocedimiento" ColumnName="tipoprocedimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="procedimientosaplicados">
+      <EntityTypeMapping TypeName="clinicaModel.procedimientosaplicados">
+        <MappingFragment StoreEntitySet="procedimientosaplicados">
+          <ScalarProperty Name="idprocedimientoaplicado" ColumnName="idprocedimientoaplicado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="propietarios">
+      <EntityTypeMapping TypeName="clinicaModel.propietarios">
+        <MappingFragment StoreEntitySet="propietarios">
+          <ScalarProperty Name="idpropietario" ColumnName="idpropietario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="razas">
+      <EntityTypeMapping TypeName="clinicaModel.razas">
+        <MappingFragment StoreEntitySet="razas">
+          <ScalarProperty Name="idraza" ColumnName="idraza" />
+          <ScalarProperty Name="raza" ColumnName="raza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vacunas">
+      <EntityTypeMapping TypeName="clinicaModel.vacunas">
+        <MappingFragment StoreEntitySet="vacunas">
+          <ScalarProperty Name="idvacuna" ColumnName="idvacuna" />
+          <ScalarProperty Name="tipodevacuna" ColumnName="tipodevacuna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK__razas__idanimal__3D5E1FD2" TypeName="clinicaModel.FK__razas__idanimal__3D5E1FD2" StoreEntitySet="razas">
+      <EndProperty Name="animales">
+        <ScalarProperty Name="idanimal" ColumnName="idanimal" />
+      </EndProperty>
+      <EndProperty Name="razas">
+        <ScalarProperty Name="idraza" ColumnName="idraza" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="idanimal" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__municipio__iddep__35BCFE0A" TypeName="clinicaModel.FK__municipio__iddep__35BCFE0A" StoreEntitySet="municipios">
+      <EndProperty Name="departamentos">
+        <ScalarProperty Name="iddepartamento" ColumnName="iddepartamento" />
+      </EndProperty>
+      <EndProperty Name="municipios">
+        <ScalarProperty Name="idmunicipio" ColumnName="idmunicipio" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="iddepartamento" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__historial__idexp__4AB81AF0" TypeName="clinicaModel.FK__historial__idexp__4AB81AF0" StoreEntitySet="historialvacunas">
+      <EndProperty Name="expediente">
+        <ScalarProperty Name="idexpediente" ColumnName="idexpediente" />
+      </EndProperty>
+      <EndProperty Name="historialvacunas">
+        <ScalarProperty Name="idhistoria" ColumnName="idhistoria" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="idexpediente" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__procedimi__idexp__4E88ABD4" TypeName="clinicaModel.FK__procedimi__idexp__4E88ABD4" StoreEntitySet="procedimientosaplicados">
+      <EndProperty Name="expediente">
+        <ScalarProperty Name="idexpediente" ColumnName="idexpediente" />
+      </EndProperty>
+      <EndProperty Name="procedimientosaplicados">
+        <ScalarProperty Name="idprocedimientoaplicado" ColumnName="idprocedimientoaplicado" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="idexpediente" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__historial__idvac__49C3F6B7" TypeName="clinicaModel.FK__historial__idvac__49C3F6B7" StoreEntitySet="historialvacunas">
+      <EndProperty Name="vacunas">
+        <ScalarProperty Name="idvacuna" ColumnName="idvacuna" />
+      </EndProperty>
+      <EndProperty Name="historialvacunas">
+        <ScalarProperty Name="idhistoria" ColumnName="idhistoria" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="idvacuna" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__propietar__idmun__38996AB5" TypeName="clinicaModel.FK__propietar__idmun__38996AB5" StoreEntitySet="propietarios">
+      <EndProperty Name="municipios">
+        <ScalarProperty Name="idmunicipio" ColumnName="idmunicipio" />
+      </EndProperty>
+      <EndProperty Name="propietarios">
+        <ScalarProperty Name="idpropietario" ColumnName="idpropietario" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="idmunicipio" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__pacientes__idpro__4222D4EF" TypeName="clinicaModel.FK__pacientes__idpro__4222D4EF" StoreEntitySet="pacientes">
+      <EndProperty Name="propietarios">
+        <ScalarProperty Name="idpropietario" ColumnName="idpropietario" />
+      </EndProperty>
+      <EndProperty Name="pacientes">
+        <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="idpropietario" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__pacientes__idraz__4316F928" TypeName="clinicaModel.FK__pacientes__idraz__4316F928" StoreEntitySet="pacientes">
+      <EndProperty Name="razas">
+        <ScalarProperty Name="idraza" ColumnName="idraza" />
+      </EndProperty>
+      <EndProperty Name="pacientes">
+        <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="idraza" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__procedimi__idpro__4D94879B" TypeName="clinicaModel.FK__procedimi__idpro__4D94879B" StoreEntitySet="procedimientosaplicados">
+      <EndProperty Name="procedimientos">
+        <ScalarProperty Name="idprocedimiento" ColumnName="idprocedimiento" />
+      </EndProperty>
+      <EndProperty Name="procedimientosaplicados">
+        <ScalarProperty Name="idprocedimientoaplicado" ColumnName="idprocedimientoaplicado" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="idprocedimiento" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

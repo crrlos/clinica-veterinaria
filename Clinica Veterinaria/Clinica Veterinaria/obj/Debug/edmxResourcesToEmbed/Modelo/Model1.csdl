@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="clinicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="animales">
+    <Key>
+      <PropertyRef Name="idanimal" />
+    </Key>
+    <Property Name="idanimal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreanimal" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="razas" Relationship="Self.FK__razas__idanimal__3D5E1FD2" FromRole="animales" ToRole="razas" />
+  </EntityType>
+  <EntityType Name="departamentos">
+    <Key>
+      <PropertyRef Name="iddepartamento" />
+    </Key>
+    <Property Name="iddepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="departamento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="municipios" Relationship="Self.FK__municipio__iddep__35BCFE0A" FromRole="departamentos" ToRole="municipios" />
+  </EntityType>
+  <EntityType Name="expediente">
+    <Key>
+      <PropertyRef Name="idexpediente" />
+    </Key>
+    <Property Name="idexpediente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idpaciente" Type="Int32" />
+    <Property Name="peso" Type="Double" />
+    <Property Name="tamaño" Type="Double" />
+    <Property Name="diagnostico" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="alimentacion" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="tratamiento" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="dosis" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="historialvacunas" Relationship="Self.FK__historial__idexp__4AB81AF0" FromRole="expediente" ToRole="historialvacunas" />
+    <NavigationProperty Name="procedimientosaplicados" Relationship="Self.FK__procedimi__idexp__4E88ABD4" FromRole="expediente" ToRole="procedimientosaplicados" />
+  </EntityType>
+  <EntityType Name="historialvacunas">
+    <Key>
+      <PropertyRef Name="idhistoria" />
+    </Key>
+    <Property Name="idhistoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="expediente" Relationship="Self.FK__historial__idexp__4AB81AF0" FromRole="historialvacunas" ToRole="expediente" />
+    <NavigationProperty Name="vacunas" Relationship="Self.FK__historial__idvac__49C3F6B7" FromRole="historialvacunas" ToRole="vacunas" />
+  </EntityType>
+  <EntityType Name="municipios">
+    <Key>
+      <PropertyRef Name="idmunicipio" />
+    </Key>
+    <Property Name="idmunicipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="municipio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="departamentos" Relationship="Self.FK__municipio__iddep__35BCFE0A" FromRole="municipios" ToRole="departamentos" />
+    <NavigationProperty Name="propietarios" Relationship="Self.FK__propietar__idmun__38996AB5" FromRole="municipios" ToRole="propietarios" />
+  </EntityType>
+  <EntityType Name="pacientes">
+    <Key>
+      <PropertyRef Name="idpaciente" />
+    </Key>
+    <Property Name="idpaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="fechadenacimiento" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="propietarios" Relationship="Self.FK__pacientes__idpro__4222D4EF" FromRole="pacientes" ToRole="propietarios" />
+    <NavigationProperty Name="razas" Relationship="Self.FK__pacientes__idraz__4316F928" FromRole="pacientes" ToRole="razas" />
+  </EntityType>
+  <EntityType Name="procedimientos">
+    <Key>
+      <PropertyRef Name="idprocedimiento" />
+    </Key>
+    <Property Name="idprocedimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoprocedimiento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="procedimientosaplicados" Relationship="Self.FK__procedimi__idpro__4D94879B" FromRole="procedimientos" ToRole="procedimientosaplicados" />
+  </EntityType>
+  <EntityType Name="procedimientosaplicados">
+    <Key>
+      <PropertyRef Name="idprocedimientoaplicado" />
+    </Key>
+    <Property Name="idprocedimientoaplicado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="expediente" Relationship="Self.FK__procedimi__idexp__4E88ABD4" FromRole="procedimientosaplicados" ToRole="expediente" />
+    <NavigationProperty Name="procedimientos" Relationship="Self.FK__procedimi__idpro__4D94879B" FromRole="procedimientosaplicados" ToRole="procedimientos" />
+  </EntityType>
+  <EntityType Name="propietarios">
+    <Key>
+      <PropertyRef Name="idpropietario" />
+    </Key>
+    <Property Name="idpropietario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="municipios" Relationship="Self.FK__propietar__idmun__38996AB5" FromRole="propietarios" ToRole="municipios" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__pacientes__idpro__4222D4EF" FromRole="propietarios" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="razas">
+    <Key>
+      <PropertyRef Name="idraza" />
+    </Key>
+    <Property Name="idraza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="raza" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="animales" Relationship="Self.FK__razas__idanimal__3D5E1FD2" FromRole="razas" ToRole="animales" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__pacientes__idraz__4316F928" FromRole="razas" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="vacunas">
+    <Key>
+      <PropertyRef Name="idvacuna" />
+    </Key>
+    <Property Name="idvacuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipodevacuna" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="historialvacunas" Relationship="Self.FK__historial__idvac__49C3F6B7" FromRole="vacunas" ToRole="historialvacunas" />
+  </EntityType>
+  <Association Name="FK__razas__idanimal__3D5E1FD2">
+    <End Role="animales" Type="Self.animales" Multiplicity="0..1" />
+    <End Role="razas" Type="Self.razas" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__municipio__iddep__35BCFE0A">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="0..1" />
+    <End Role="municipios" Type="Self.municipios" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__historial__idexp__4AB81AF0">
+    <End Role="expediente" Type="Self.expediente" Multiplicity="0..1" />
+    <End Role="historialvacunas" Type="Self.historialvacunas" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__procedimi__idexp__4E88ABD4">
+    <End Role="expediente" Type="Self.expediente" Multiplicity="0..1" />
+    <End Role="procedimientosaplicados" Type="Self.procedimientosaplicados" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__historial__idvac__49C3F6B7">
+    <End Role="vacunas" Type="Self.vacunas" Multiplicity="0..1" />
+    <End Role="historialvacunas" Type="Self.historialvacunas" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__propietar__idmun__38996AB5">
+    <End Role="municipios" Type="Self.municipios" Multiplicity="0..1" />
+    <End Role="propietarios" Type="Self.propietarios" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__pacientes__idpro__4222D4EF">
+    <End Role="propietarios" Type="Self.propietarios" Multiplicity="0..1" />
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__pacientes__idraz__4316F928">
+    <End Role="razas" Type="Self.razas" Multiplicity="0..1" />
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__procedimi__idpro__4D94879B">
+    <End Role="procedimientos" Type="Self.procedimientos" Multiplicity="0..1" />
+    <End Role="procedimientosaplicados" Type="Self.procedimientosaplicados" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="clinicaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="animales" EntityType="Self.animales" />
+    <EntitySet Name="departamentos" EntityType="Self.departamentos" />
+    <EntitySet Name="expediente" EntityType="Self.expediente" />
+    <EntitySet Name="historialvacunas" EntityType="Self.historialvacunas" />
+    <EntitySet Name="municipios" EntityType="Self.municipios" />
+    <EntitySet Name="pacientes" EntityType="Self.pacientes" />
+    <EntitySet Name="procedimientos" EntityType="Self.procedimientos" />
+    <EntitySet Name="procedimientosaplicados" EntityType="Self.procedimientosaplicados" />
+    <EntitySet Name="propietarios" EntityType="Self.propietarios" />
+    <EntitySet Name="razas" EntityType="Self.razas" />
+    <EntitySet Name="vacunas" EntityType="Self.vacunas" />
+    <AssociationSet Name="FK__razas__idanimal__3D5E1FD2" Association="Self.FK__razas__idanimal__3D5E1FD2">
+      <End Role="animales" EntitySet="animales" />
+      <End Role="razas" EntitySet="razas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__municipio__iddep__35BCFE0A" Association="Self.FK__municipio__iddep__35BCFE0A">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="municipios" EntitySet="municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__historial__idexp__4AB81AF0" Association="Self.FK__historial__idexp__4AB81AF0">
+      <End Role="expediente" EntitySet="expediente" />
+      <End Role="historialvacunas" EntitySet="historialvacunas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__procedimi__idexp__4E88ABD4" Association="Self.FK__procedimi__idexp__4E88ABD4">
+      <End Role="expediente" EntitySet="expediente" />
+      <End Role="procedimientosaplicados" EntitySet="procedimientosaplicados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__historial__idvac__49C3F6B7" Association="Self.FK__historial__idvac__49C3F6B7">
+      <End Role="vacunas" EntitySet="vacunas" />
+      <End Role="historialvacunas" EntitySet="historialvacunas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__propietar__idmun__38996AB5" Association="Self.FK__propietar__idmun__38996AB5">
+      <End Role="municipios" EntitySet="municipios" />
+      <End Role="propietarios" EntitySet="propietarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacientes__idpro__4222D4EF" Association="Self.FK__pacientes__idpro__4222D4EF">
+      <End Role="propietarios" EntitySet="propietarios" />
+      <End Role="pacientes" EntitySet="pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacientes__idraz__4316F928" Association="Self.FK__pacientes__idraz__4316F928">
+      <End Role="razas" EntitySet="razas" />
+      <End Role="pacientes" EntitySet="pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__procedimi__idpro__4D94879B" Association="Self.FK__procedimi__idpro__4D94879B">
+      <End Role="procedimientos" EntitySet="procedimientos" />
+      <End Role="procedimientosaplicados" EntitySet="procedimientosaplicados" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
